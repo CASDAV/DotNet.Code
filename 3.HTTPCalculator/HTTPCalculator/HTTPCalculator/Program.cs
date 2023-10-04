@@ -1,7 +1,6 @@
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
 
 app.Run(async (HttpContext context) =>
 {
@@ -15,15 +14,15 @@ app.Run(async (HttpContext context) =>
 
             if (!context.Request.Query.ContainsKey("firstNumber"))
             {
-                await context.Response.WriteAsync("Invalid input for 'firstNumber'");
+                await context.Response.WriteAsync("Invalid input for 'firstNumber'\n");
             }
             if (!context.Request.Query.ContainsKey("secondNumber"))
             {
-                await context.Response.WriteAsync("Invalid input for 'secondNumber'");
+                await context.Response.WriteAsync("Invalid input for 'secondNumber'\n");
             }
             if (!context.Request.Query.ContainsKey("operation"))
             {
-                await context.Response.WriteAsync($"Invalid input for 'operation'");
+                await context.Response.WriteAsync($"Invalid input for 'operation'\n");
             }
         }
         else
@@ -79,31 +78,49 @@ app.Run(async (HttpContext context) =>
                             else
                             {
                                 context.Response.StatusCode = 400;
-                                await context.Response.WriteAsync("Invalid input for 'secondNumber': Cannot divide by 0");
+                                await context.Response.WriteAsync("Invalid input for 'secondNumber': Cannot divide by 0\n");
                             }
                             break;
                         default:
                             context.Response.StatusCode = 400;
-                            await context.Response.WriteAsync($"Invalid input for 'operation'");
+                            await context.Response.WriteAsync($"Invalid input for 'operation'\n");
+                            break;
+                        case "Mod":
+                        case "MOD":
+                        case "mod":
+                        case "Module":
+                        case "module":
+                            if (SecondNumber > 0)
+                            {
+                                context.Response.StatusCode = 200;
+                                await context.Response.WriteAsync($"{FirstNumber % SecondNumber}");
+                            }
+                            else
+                            {
+                                context.Response.StatusCode = 400;
+                                await context.Response.WriteAsync("Invalid input for 'secondNumber': Cannot divide by 0\n");
+                            }
                             break;
                     }
                 }
                 else
                 {
                     context.Response.StatusCode = 400;
-                    await context.Response.WriteAsync("Invalid input for 'secondNumber'");
+                    await context.Response.WriteAsync("Invalid input for 'secondNumber'\n");
                 }
             }
             else
             {
                 context.Response.StatusCode = 400;
-                await context.Response.WriteAsync("Invalid input for 'firstNumber'");
+                await context.Response.WriteAsync("Invalid input for 'firstNumber'\n");
             }
         }
     }
     else
     {
         context.Response.StatusCode = 400;
-        context.Response.WriteAsync($"Invalid HTTP method");
+        await context.Response.WriteAsync($"Invalid HTTP method\n");
     }
 });
+
+app.Run();
