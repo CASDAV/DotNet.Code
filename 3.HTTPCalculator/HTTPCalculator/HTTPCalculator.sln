@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTTPCalculator", "HTTPCalculator\HTTPCalculator.csproj", "{AD384D3F-6CC1-4D4D-968D-B119905FA7BC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD384D3F-6CC1-4D4D-968D-B119905FA7BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD384D3F-6CC1-4D4D-968D-B119905FA7BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD384D3F-6CC1-4D4D-968D-B119905FA7BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD384D3F-6CC1-4D4D-968D-B119905FA7BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F3C86256-D7EC-461A-9D56-A94453944CC9}
+	EndGlobalSection
+EndGlobal
